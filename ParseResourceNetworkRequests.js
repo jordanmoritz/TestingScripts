@@ -4,9 +4,9 @@ function getRequests(entries) {
     var i;
     for (i = 0; i < entries.length; i++) {
         requestURLs.push(entries[i]['name']);
-    };
+    }
 return requestURLs;
-};
+}
 
 //Pulls all Request URLs for that specific resource into an array
 function getResource(requestURLs, resource) {
@@ -15,10 +15,10 @@ function getResource(requestURLs, resource) {
 	for (i = 0; i < requestURLs.length; i++) {
 		if (requestURLs[i].indexOf(resource) > 1) {
 			resourceURLs.push(requestURLs[i]);
-        };
-    };
+        }
+    }
 return resourceURLs;
-};
+}
 
 //Uses resource, eval and validity arrays and outputs results
 function validateResource(resourceURLs, evalCriteria, validationCriteria) {
@@ -27,8 +27,8 @@ function validateResource(resourceURLs, evalCriteria, validationCriteria) {
 	for (r = 0; r < resourceURLs.length; r++) {
 		if (resourceURLs[r].indexOf(evalCriteria) > 1) {
 			checkResource.push(resourceURLs[r]);
-        };
-    };
+        }
+    }
 	console.log('/////////////////////////////////////');
 	console.log('Hits Identified:', checkResource.length);
 	console.log('-------------------------------------');
@@ -49,17 +49,17 @@ function validateResource(resourceURLs, evalCriteria, validationCriteria) {
                     resourceValue = resourceParams[p].split('=');
                     console.log(validationCriteria[c], 'found and returned', resourceValue);
                     validParam += 1;
-                };
-            };
-        };
+                }
+            }
+        }
 		if (validParam == validationCriteria.length) {
 			console.log('No issues detected with hit', r);
 			console.log('-------------------------------');
         } else {
 			console.log('Hit', r, 'invalid. Expected', validationCriteria.length, 'only matched', validParam);
-        };
-    };
-};
+        }
+    }
+}
 
 //Source of performanceTiming entries
 var entries = window.performance.getEntries();
